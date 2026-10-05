@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!-- Ejercicio 1 -->
+    <color name="franja1">#C62828</color>
+    <color name="franja2">#00838F</color>
+    <color name="franja3">#F9A825</color>
+    <color name="bloque_oscuro">#263238</color>
+    <color name="bloque_claro">#ECEFF1</color>
+    <!-- Ejercicio 2 -->
+    <color name="cuadro">#5E35B1</color>
+    <!-- Ejercicio 3 -->
+    <color name="fondo_calc">#424242</color>
+    <color name="pantalla">#9E9E9E</color>
+    <color name="boton">#000000</color>
+    <color name="texto_boton">#FFFFFF</color>
+</resources>
