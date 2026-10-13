@@ -7,28 +7,27 @@
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
-    <!-- Franja 1 (Roja) -->
+    <!-- Franja 1  -->
     <View
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@color/franja1" />
 
-    <!-- Franja 2 (Azul/Cian) -->
+    <!-- Franja 2  -->
     <View
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@color/franja2" />
 
-    <!-- Franja 3 (Amarilla) -->
+    <!-- Franja 3  -->
     <View
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@color/franja3" />
 
-    <!-- Cuarta columna dividida en 5 bloques verticales iguales -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
