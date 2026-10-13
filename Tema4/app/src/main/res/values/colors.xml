@@ -2,17 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <!-- Ejercicio 1 -->
     <color name="franja1">#7B1FA2</color>
     <color name="franja2">#2E7D32</color>
     <color name="franja3">#E64A19</color>
     <color name="bloque_oscuro">#1A237E</color>
     <color name="bloque_claro">#EDE7F6</color>
-    <!-- Ejercicio 2 -->
     <color name="cuadro">#853541</color>
-    <!-- Ejercicio 3 -->
     <color name="fondo_calc">#024242</color>
-    <color name="pantalla">#5E9E9E</color>
+    <color name="pantalla">#1F4E5B</color>
     <color name="boton">#900000</color>
-    <color name="texto_boton">#215465</color>
+    <color name="texto_boton">#FFFFFF</color>
 </resources>
