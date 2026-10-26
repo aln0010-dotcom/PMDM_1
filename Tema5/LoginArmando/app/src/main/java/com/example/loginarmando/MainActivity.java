@@ -1,6 +1,9 @@
 package com.example.loginarmando;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +11,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.materialswitch.MaterialSwitch;
+
 public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +24,29 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        EditText etCorreo = findViewById(R.id.etCorreo);
+        EditText etPass = findViewById(R.id.etPass);
+        MaterialSwitch swRecordar = findViewById(R.id.swRecordar);
+        Button btnContinuar = findViewById(R.id.btnContinuar);
+        TextView tvMensaje = findViewById(R.id.tvMensaje);
+
+        btnContinuar.setOnClickListener(v -> {
+            String correo = etCorreo.getText().toString();
+            String pass = etPass.getText().toString();
+
+            if (correo.equals("armando@correo.com") && pass.equals("1234")) {
+                tvMensaje.setTextColor(getColor(R.color.verde_ok));
+                if (swRecordar.isChecked()) {
+                    tvMensaje.setText(R.string.acceso_recordado);
+                } else {
+                    tvMensaje.setText(R.string.acceso_correcto);
+                }
+            } else {
+                tvMensaje.setTextColor(getColor(R.color.rojo_error));
+                tvMensaje.setText(R.string.acceso_incorrecto);
+            }
         });
     }
 }
