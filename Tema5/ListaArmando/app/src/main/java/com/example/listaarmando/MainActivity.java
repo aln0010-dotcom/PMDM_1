@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
         videojuegos.add(new Videojuego("Terraria", "PC", R.drawable.baseline_extension_24));
         videojuegos.add(new Videojuego("Call of Duty", "Xbox Series X", R.drawable.baseline_military_tech_24));
 
-        // colocar los juegos en el RecyclerView
+        // 2. La lista: cómo se colocan las filas y quién las pinta
         RecyclerView rvLista = findViewById(R.id.rvLista);
         rvLista.setLayoutManager(new LinearLayoutManager(this));
+        rvLista.addItemDecoration(
+                new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         rvLista.setAdapter(new AdaptadorVideojuegos(videojuegos));
     }
 }
