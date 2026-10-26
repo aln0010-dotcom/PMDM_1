@@ -1,10 +1,9 @@
 package com.example.loginarmando;
-
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -14,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.materialswitch.MaterialSwitch;
 
 public class MainActivity extends AppCompatActivity {
+    private int intentos = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             if (correo.equals("armando@correo.com") && pass.equals("1234")) {
+                intentos = 0;
                 tvMensaje.setTextColor(getColor(R.color.verde_ok));
                 if (swRecordar.isChecked()) {
                     tvMensaje.setText(R.string.acceso_recordado);
@@ -52,8 +53,15 @@ public class MainActivity extends AppCompatActivity {
                     tvMensaje.setText(R.string.acceso_correcto);
                 }
             } else {
+                intentos++;
                 tvMensaje.setTextColor(getColor(R.color.rojo_error));
-                tvMensaje.setText(R.string.acceso_incorrecto);
+                if (intentos == 3) {
+                    btnContinuar.setEnabled(false);
+                    tvMensaje.setText(R.string.demasiados_intentos);
+                    Toast.makeText(this, R.string.demasiados_intentos, Toast.LENGTH_SHORT).show();
+                } else {
+                    tvMensaje.setText(R.string.acceso_incorrecto);
+                }
             }
         });
     }
