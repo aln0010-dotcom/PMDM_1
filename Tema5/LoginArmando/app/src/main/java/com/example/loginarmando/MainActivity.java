@@ -35,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
         btnContinuar.setOnClickListener(v -> {
             String correo = etCorreo.getText().toString();
             String pass = etPass.getText().toString();
+            if (correo.isEmpty()) {
+                etCorreo.setError(getString(R.string.error_correo));
+                return;
+            }
+            if (pass.isEmpty()) {
+                etPass.setError(getString(R.string.error_pass));
+                return;
+            }
 
             if (correo.equals("armando@correo.com") && pass.equals("1234")) {
                 tvMensaje.setTextColor(getColor(R.color.verde_ok));
