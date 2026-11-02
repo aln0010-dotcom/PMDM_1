@@ -7,8 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import android.widget.TextView;
 
 public class MenuActivity extends AppCompatActivity {
+    public static final String EXTRA_CORREO = "correo";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +22,8 @@ public class MenuActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        String correo = getIntent().getStringExtra(EXTRA_CORREO);
+        TextView tvSaludo = findViewById(R.id.tvSaludo);
+        tvSaludo.setText(getString(R.string.menu_saludo, correo));
     }
 }
