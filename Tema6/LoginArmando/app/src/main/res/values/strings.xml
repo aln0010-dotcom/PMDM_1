@@ -15,6 +15,6 @@
     <string name="error_correo">Escribe tu correo</string>
     <string name="error_pass">Escribe la contraseña</string>
     <string name="demasiados_intentos">Demasiados intentos</string>
-    <string name="menu_titulo" />
-    <string name="menu_saludo" />
+    <string name="menu_titulo">Menú Principal</string>
+    <string name="menu_saludo">Bienvenido, %s</string>
 </resources>

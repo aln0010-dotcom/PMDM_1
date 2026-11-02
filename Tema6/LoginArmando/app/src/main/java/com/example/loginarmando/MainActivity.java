@@ -1,4 +1,5 @@
 package com.example.loginarmando;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,12 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
             if (correo.equals("armando@correo.com") && pass.equals("1234")) {
                 intentos = 0;
-                tvMensaje.setTextColor(getColor(R.color.verde_ok));
-                if (swRecordar.isChecked()) {
-                    tvMensaje.setText(R.string.acceso_recordado);
-                } else {
-                    tvMensaje.setText(R.string.acceso_correcto);
-                }
+                Intent intent = new Intent(this, MenuActivity.class);
+                intent.putExtra(MenuActivity.EXTRA_CORREO, correo);
+                startActivity(intent);
+                finish();
             } else {
                 intentos++;
                 tvMensaje.setTextColor(getColor(R.color.rojo_error));
