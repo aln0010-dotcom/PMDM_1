@@ -1,10 +1,13 @@
 package com.example.loginarmando;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -15,6 +18,7 @@ import com.google.android.material.materialswitch.MaterialSwitch;
 
 public class MainActivity extends AppCompatActivity {
     private int intentos = 0;
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
         Button btnContinuar = findViewById(R.id.btnContinuar);
         TextView tvMensaje = findViewById(R.id.tvMensaje);
 
+        prefs = getSharedPreferences("sesion", MODE_PRIVATE);
+        String guardado = prefs.getString("correo", "");
+        if (!guardado.isEmpty()) {
+            etCorreo.setText(guardado);
+            swRecordar.setChecked(true);
+            etPass.requestFocus();
+        }
+
         btnContinuar.setOnClickListener(v -> {
             String correo = etCorreo.getText().toString();
             String pass = etPass.getText().toString();
@@ -47,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
 
             if (correo.equals("armando@correo.com") && pass.equals("1234")) {
                 intentos = 0;
+                if (swRecordar.isChecked()) {
+                    prefs.edit().putString("correo", correo).apply();
+                } else {
+                    prefs.edit().remove("correo").apply();
+                }
                 Intent intent = new Intent(this, MenuActivity.class);
                 intent.putExtra(MenuActivity.EXTRA_CORREO, correo);
                 startActivity(intent);
