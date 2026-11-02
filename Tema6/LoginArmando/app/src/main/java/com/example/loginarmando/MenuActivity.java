@@ -8,6 +8,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import android.widget.TextView;
+import android.content.Intent;
+import android.widget.Button;
 
 public class MenuActivity extends AppCompatActivity {
     public static final String EXTRA_CORREO = "correo";
@@ -25,5 +27,10 @@ public class MenuActivity extends AppCompatActivity {
         String correo = getIntent().getStringExtra(EXTRA_CORREO);
         TextView tvSaludo = findViewById(R.id.tvSaludo);
         tvSaludo.setText(getString(R.string.menu_saludo, correo));
+        Button btnCerrarSesion = findViewById(R.id.btnCerrarSesion);
+        btnCerrarSesion.setOnClickListener(v -> {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        });
     }
 }

@@ -23,4 +23,18 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Bienvenido, armando@correo.com" />
 
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/boton"
+        android:text="@string/cerrar_sesion_btn"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSaludo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

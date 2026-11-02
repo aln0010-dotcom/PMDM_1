@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">LoginArmando</string>
 
-
     <string name="correo_label">Correo electrónico</string>
     <string name="correo_hint">armando@correo.com</string>
     <string name="pass_label">Contraseña</string>
@@ -16,5 +15,6 @@
     <string name="error_pass">Escribe la contraseña</string>
     <string name="demasiados_intentos">Demasiados intentos</string>
     <string name="menu_titulo">Menú Principal</string>
-    <string name="menu_saludo">Bienvenido, %s</string>
+    <string name="menu_saludo">Hola, %s</string>
+    <string name="cerrar_sesion_btn">Cerrar sesión</string>
 </resources>
