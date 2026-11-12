@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">ReproductorArmando</string>
+    <string name="app_name">Reproductor de Armando</string>
+    <string name="cancion_titulo">Colgando en tus manos · Carlos Baute</string>
+    <string name="tiempo_inicial">00:00</string>
+    <string name="btn_play">Play</string>
+    <string name="btn_pausa">Pausa</string>
+    <string name="efectos_titulo">Efectos de sonido</string>
+    <string name="efecto_aplauso">Aplauso</string>
+    <string name="efecto_campana">Campana</string>
+    <string name="efecto_laser">Láser</string>
+    <string name="efecto_moneda">Moneda</string>
 </resources>
