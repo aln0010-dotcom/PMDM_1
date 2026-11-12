@@ -1,5 +1,7 @@
 package com.example.reproductorarmando;
 
+import android.media.AudioAttributes;
+import android.media.SoundPool;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -28,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvActual;
     private TextView tvTotal;
     private final Handler handler = new Handler(Looper.getMainLooper());
+
+    private SoundPool soundPool;
+    private int idAplauso, idCampana, idLaser, idMoneda;
+    private int cargados = 0;
 
     private final Runnable actualizar = new Runnable() {
         @Override
@@ -103,6 +109,43 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
+
+        Button btnAplauso = findViewById(R.id.btnAplauso);
+        Button btnCampana = findViewById(R.id.btnCampana);
+        Button btnLaser = findViewById(R.id.btnLaser);
+        Button btnMoneda = findViewById(R.id.btnMoneda);
+
+        AudioAttributes atributos = new AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_GAME)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                .build();
+
+        soundPool = new SoundPool.Builder()
+                .setMaxStreams(4)
+                .setAudioAttributes(atributos)
+                .build();
+
+        soundPool.setOnLoadCompleteListener((pool, idSonido, estado) -> {
+            if (estado == 0) {
+                cargados++;
+                if (cargados == 4) {
+                    btnAplauso.setEnabled(true);
+                    btnCampana.setEnabled(true);
+                    btnLaser.setEnabled(true);
+                    btnMoneda.setEnabled(true);
+                }
+            }
+        });
+
+        idAplauso = soundPool.load(this, R.raw.efecto_aplauso, 1);
+        idCampana = soundPool.load(this, R.raw.efecto_campana, 1);
+        idLaser = soundPool.load(this, R.raw.efecto_laser, 1);
+        idMoneda = soundPool.load(this, R.raw.efecto_moneda, 1);
+
+        btnAplauso.setOnClickListener(v -> soundPool.play(idAplauso, 1f, 1f, 1, 0, 1f));
+        btnCampana.setOnClickListener(v -> soundPool.play(idCampana, 1f, 1f, 1, 0, 1f));
+        btnLaser.setOnClickListener(v -> soundPool.play(idLaser, 1f, 1f, 1, 0, 1f));
+        btnMoneda.setOnClickListener(v -> soundPool.play(idMoneda, 1f, 1f, 1, 0, 1f));
     }
 
     @Override
@@ -126,6 +169,10 @@ public class MainActivity extends AppCompatActivity {
         if (player != null) {
             player.release();
             player = null;
+        }
+        if (soundPool != null) {
+            soundPool.release();
+            soundPool = null;
         }
     }
 

@@ -79,4 +79,66 @@
         app:layout_constraintStart_toEndOf="@id/btnPlay"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <TextView
+        android:id="@+id/tvEfectos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/efectos_titulo"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/btnPlay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guiaCentro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <Button
+        android:id="@+id/btnAplauso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:enabled="false"
+        android:text="@string/efecto_aplauso"
+        app:layout_constraintTop_toBottomOf="@id/tvEfectos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guiaCentro" />
+
+    <Button
+        android:id="@+id/btnCampana"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:enabled="false"
+        android:text="@string/efecto_campana"
+        app:layout_constraintTop_toBottomOf="@id/tvEfectos"
+        app:layout_constraintStart_toEndOf="@id/guiaCentro"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnLaser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:enabled="false"
+        android:text="@string/efecto_laser"
+        app:layout_constraintTop_toBottomOf="@id/btnAplauso"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guiaCentro" />
+
+    <Button
+        android:id="@+id/btnMoneda"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:enabled="false"
+        android:text="@string/efecto_moneda"
+        app:layout_constraintTop_toBottomOf="@id/btnCampana"
+        app:layout_constraintStart_toEndOf="@id/guiaCentro"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
